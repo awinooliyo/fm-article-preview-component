@@ -45,7 +45,6 @@ main {
     align-items: center;
 }
 
-/* Article Preview Container */
 .article-preview-container {
     display: flex;
     flex-direction: row;
@@ -59,10 +58,11 @@ main {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* Article Image Section */
 .article-image {
     flex: 1;
     max-width: 40%;
+    /* width: 100%;
+    height: 100%; */
     overflow: hidden;
     position: relative;
 }
@@ -73,13 +73,13 @@ main {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     object-fit: cover;
+    object-position: center; 
     display: block;
     /* right: -100%; */
     /* bottom: -39%; */
     /* object-position: -20% 0; */
 }
 
-/* Article Details Section */
 .article-details {
     flex: 1;
     display: flex;
@@ -105,7 +105,6 @@ main {
     line-height: 1.4em;
 }
 
-
 .author-date-share-info {
     display: flex;
     align-items: center;
@@ -114,7 +113,6 @@ main {
     position: relative;
 }
 
-/* Author Image */
 .author-image {
     width: 40px;
     height: 40px;
@@ -154,7 +152,6 @@ main {
     font-size: 13px;
     color: var(--grayish-blue);
 }
-
 
 .share-button {
     width: 35px;
@@ -205,7 +202,7 @@ main {
     border-color: var(--very-dark-grayish-blue) transparent transparent transparent;
 }
 
-/* Show Share Popup */
+
 .share-button.active + .share-popup {
     opacity: 1;
     visibility: visible;
@@ -261,8 +258,11 @@ footer {
 /* Media Querries for responsive design */
 @media (max-width: 768px) {
     .article-preview-container {
+        display: flex;
         flex-direction: column;
         max-width: 90%;
+        margin: o auto;
+        height: 100dvh;
         height: auto;
         border-radius: 15px; /* Ensure rounded corners */
         overflow: hidden;
@@ -271,8 +271,9 @@ footer {
 
 
     .article-image {
-        width: 100%;
-        height: 800px; 
+        width: 100vw; 
+        max-width: 100%;
+        height: 250px;
         border-radius: 15px 15px 0 0; 
         overflow: hidden; 
         position: relative;
@@ -283,13 +284,16 @@ footer {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        display: block;
+        object-position: center;
+        border-radius: 15px 15px 0 0;
+        /* display: block; */
     }
 
     /* Adjust Article Text Section */
     .article-details {
-        padding: 25px;
+        padding: 20px;
         text-align: left;
+        word-wrap: break-word;
     }
 
     .article-heading h1 {
@@ -298,7 +302,7 @@ footer {
         line-height: 1.4;
         color: var(--very-dark-grayish-blue);
         margin-bottom: 10px;
-        word-wrap: break-word; /* Prevents awkward line breaks */
+        word-wrap: break-word; 
     }
 
     .article-summary p {
@@ -308,18 +312,41 @@ footer {
         margin-bottom: 15px;
     }
 
-    
     .author-date-share-info {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 20px;
+        /* gap: 5px; */
     }
 
     .author-image {
         width: 40px;
         height: 40px;
         border-radius: 50%;
+    }
+
+    .author-name-date p {
+        padding: 0;
+        margin: 5px;
+    }
+    #authors-name p {
+        padding: 0;
+        margin: 0;
+    }
+
+    #authors-name span 
+    #date {
+        font-size: 0.9rem;
+        line-height: normal;
+        margin-bottom: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    
+    .author-name-date {
+        font-size: 10px;
     }
 
     .date-share {
@@ -352,16 +379,16 @@ footer {
     /* Ensure the Share Popup appears below the share button */
     .share-popup {
         position: absolute;
-        bottom: -70px;
-        left: 50%;
+        top: -70px;
+        left: 10%;
         transform: translateX(-50%);
-        padding: 12px;
+        padding: 5px;
         width: max-content;
         display: flex;
         justify-content: center;
         background: var(--very-dark-grayish-blue);
         color: #ffffff;
-        border-radius: 10px;
+        border-radius: 5px;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease-in-out;
@@ -369,8 +396,8 @@ footer {
 
     .share-popup::after {
         top: auto;
-        bottom: 100%;
-        left: 50%;
+        bottom: -35%;
+        right: 70%;
         transform: translateX(-50%);
         border-width: 6px;
         border-style: solid;
@@ -387,20 +414,20 @@ footer {
 @media (max-width: 320px) {
     .article-preview-container {
         max-width: 100%;
-        padding: 10px;
+        padding: 0.8rem;
     }
 
     .article-details {
-        padding: 12px;
+        padding: 0.9rem;
     }
 
     .article-heading h1 {
-        font-size: 16px;
+        font-size: 1.3rem;
         line-height: 1.2;
     }
 
     .article-summary p {
-        font-size: 14px;
+        font-size: 0.9rem;
     }
 
     .share-button {
